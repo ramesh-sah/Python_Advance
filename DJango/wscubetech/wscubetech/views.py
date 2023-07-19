@@ -5,6 +5,7 @@ def homePage(request):
         'title':'home new',
         'bdata':'welcome to django',
         'clist':['php','java','django'],
+        "numbers":[10,20,30,40,50],
         'student_details':[
             {'name':'pradeep',"no":9862981898},
             {'name':'testing','no':9865985898}

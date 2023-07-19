@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search Page</title>
+</head>
+<body>
+  <h1>Search Page</h1>
+  <form method ="GET">
+
+  <input type="text" id="searchInput" name='search' placeholder="Search...">
+  <button type= 'submit'>Search</button>
+  </form>
+
+  <h2>Categories</h2>
+  
+
+  <ul>
+    {% for n in newsdata %}
+    <li>
+        <a >{{n.news_title}} </a>
+        <p>{{n.news_desc  |safe }}</p>
+    </li>
+    {% empty%}
+    no data found
+  
+    {% endfor %}
+    
+  </ul>
+  
+
+  
+</body>
+</html>

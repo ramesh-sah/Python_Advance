@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <h1>CRUD Example</h1>
+
+  <form method="POST">
+    <label for="option">Book Name :</label>
+    <input type="text" id="book" name="bookname" required>
+
+    <br><br>
+
+    <input type="submit" value="Add">
+    <input type="button" value="Update">
+    <input type="button" value="Delete">
+    <br><br>
+    
+  </form>
+  <table>
+    <thead>
+      <tr>
+        <th>list of books</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+       
+      <tr>
+        {% for book in books%}
+        <td>{{bookname}} ramesh sah</td>
+        {% endfor %}
+      </tr>
+      <tr>
+        {% for book in books%}
+        <td>{{bookname}} ramesh sah</td>
+        {% endfor %}
+      </tr>
+       
+      
+     
+    </tbody>
+  </table>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Marksheet</title>
+  <style>
+   body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+h1 {
+  text-align: center;
+  color: #4CAF50;
+  margin-bottom: 30px;
+}
+
+form {
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  padding: 20px;
+}
+
+label {
+  display: inline-block;
+  width: 150px;
+  font-weight: bold;
+}
+
+input[type="text"] {
+  width: 200px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+table {
+  width: 400px;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.result {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+#resultContainer {
+  display: inline-block;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+}
+
+  </style>
+</head>
+<body>
+  <h1>Student Marksheet Calculator</h1>
+
+  <form id="marksheetForm" method= "POST" >
+    {% csrf_token %}
+    <label for="name"> Student Name:</label>
+    <input type="text" id="name" name="name"value ="{{name}}"><br>
+
+    <label for="english"> Marks in English:</label>
+    <input type="text" id="english" name="english"value ="{{english}}"><br>
+
+    <label for="maths">Marks in Maths:</label>
+    <input type="text" id="maths" name="maths"value ="{{maths}}"><br>
+
+    <label for="science">Marks in Science:</label>
+    <input type="text" id="science" name="science"value ="{{science}}"><br>
+
+    <label for="computerscience">Marks in Computer Science:</label>
+    <input type="text" id="computerscience" name="computerscience"value ="{{computerscience}}"><br>
+
+    <label for="socialstudies">Marks in Social Studies:</label>
+    <input type="text" id="socialstudies" name="socialstudies"value ="{{socialstudies}}"><br>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <div id="resultContainer" class="result" style="display;">
+    <label for="total"> Total Marks :</label>
+    <input type="text" id="total" value ="{{total}}"><br>
+
+    <label for="percentage">Result in Percentage:</label>
+    <input type="text" id="percentage" value="{{percentage}}"><br>
+   
+
+    <label for="grade">Result in Grade:</label>
+    <input type="text" id="grade" value="{{grade}}"><br>
+   
+  </div>
+ 
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Calculator</title>
+  <style>
+    .container {
+      width: 300px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #f1f1f1;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    h2 {
+      text-align: center;
+    }
+    
+    .input-group {
+      margin: 10px 0;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    input[type="number"] {
+      width: 100%;
+      padding: 5px;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+    }
+    
+    .btn-group {
+      text-align: center;
+      margin-top: 10px;
+    }
+    
+    button {
+      padding: 5px 15px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Simple Calculator</h2>
+    <form mehtod = "GET">
+        <div class="input-group">
+        <label for="num1">Number 1:</label>
+        <input type="number" id="num1"name ='num1'placeholder="Enter a number" />
+        </div>
+        <div class="input-group">
+        <label for="num2">Number 2:</label>
+        <input type="number" id="num2" name = 'num2'placeholder="Enter a number" />
+        </div>
+        <select id="opr" name ="opr" >
+            <option name="add" value="+">+</option>
+            <option name ="substract" value="-">-</option>
+            <option name = "multiply" value="*">*</option>
+            <option name = "divide" value="/">/</option>
+        </select>
+        <div>
+            <input type="submit" value="Submit" />
+        </div>
+        <div class="input-group">
+        <label for="result">Result:</label>
+        <input type="number" id="result" value = "{{result}}/>
+        </div>
+        </div>
+    </form>
+    
+  
+</body>
+</html>

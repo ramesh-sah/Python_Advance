@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search Page</title>
+</head>
+<body>
+  <h1>Search Page</h1>
+  <form method ="GET">
+
+  <input type="text" id="searchInput" placeholder="Search...">
+  <button onclick="search()">Search</button>
+  </form>
+
+  <h2>Categories</h2>
+  <ul>
+    <li>
+        <a href="#">{{newsDetails.news_title}} </a>
+        <p>{{newsDetails.news_desc  |safe }}</p>
+    </li>
+    <li>
+        <a href="#">Category second</a>
+        <p> this is the category second page</P>
+    </li>
+    <li>
+        <a href="#">Category Third </a>
+        <p>this is category third page</p>
+
+    </li>
+    <li>
+        <a href="#">Category Forth</a>
+        <p> this is category forth page</p>
+    </li>
+    <li><a href="#">Category Fifth</a></li>
+    <li><a href="#">this is the category of the fifth page </a></li>
+  </ul>
+
+  
+</body>
+</html>

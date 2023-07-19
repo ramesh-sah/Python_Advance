@@ -1,0 +1,31 @@
+ .u-section-1 {
+     background-image: url("images/97541731-0.jpeg");
+ }
+ 
+ .u-section-1 .u-sheet-1 {
+     min-height: 447px;
+ }
+ 
+ @media (max-width: 1199px) {
+     .u-section-1 .u-sheet-1 {
+         min-height: 369px;
+     }
+ }
+ 
+ @media (max-width: 991px) {
+     .u-section-1 .u-sheet-1 {
+         min-height: 283px;
+     }
+ }
+ 
+ @media (max-width: 767px) {
+     .u-section-1 .u-sheet-1 {
+         min-height: 212px;
+     }
+ }
+ 
+ @media (max-width: 575px) {
+     .u-section-1 .u-sheet-1 {
+         min-height: 133px;
+     }
+ }
