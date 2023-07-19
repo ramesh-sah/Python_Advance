@@ -55,16 +55,13 @@ def submitcontact(request):
 
 
 def Account(request):
-    data = {}
-    if request.method == 'POST':
-        firstname = request.POST.get('fname')
-        lastname = request.POST.get('lname')
-        data = {'fname': fname, 'lname': lname}
 
-    return render(request, "account.html", data)
+    return render(request, "account.html")
 
 
 def accountsubmit(request):
+    data = {}
+
     if request.method == "POST":
         fname = request.POST.get('fname')
         lname = request.POST.get('lname')
@@ -76,9 +73,10 @@ def accountsubmit(request):
         phone = request.POST.get('mobile')
         submit = Accountsubmit(firstname=fname, lastname=lname,
                                company_name=cname, country=country, city=city, address=address)
+        data = {'fname': fname, 'lname': lname}
         submit.save()
         print(fname, lname)
-    return render(request, "account.html")
+    return render(request, "account.html", data)
 
 
 """Account Section end"""
