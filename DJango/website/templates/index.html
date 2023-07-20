@@ -99,13 +99,15 @@
                   >
                   <!-- pagination elements -->
         <div class="pagination_section">
-          <a href="#">
+          {% if serviceData.has_previous %}
+          <a href="/home/?page=1">
               << Previous
           </a>
-          <a href="#"
+          <a href="/home/? page={{serviceData.previous_page_number}}"
              title="Algorithm">
               1
           </a>
+        {% endif %}
           <a href="#"
              title="DataStructure">
               2

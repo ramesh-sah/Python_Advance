@@ -4,26 +4,44 @@ from service.models import Service
 from news.models import News
 from django.core import paginator
 from django.core.paginator import Paginator
+from saveHome.models import savehome
+from django.core.mail import send_mail, EmailMultiAlternatives
 
 
 def home(request):
+    # send_mail('testing mail',
+    #           'here is the mail',
+    #           'rameshk.sah@patancollege.edu.np',
+    #           ['rsah3798@gmail.com'],
+    #           fail_silently=False)
+
     newsData = News.objects.all()
 
-    serviceData = Service.objects.all().order_by('-id')
+    serviceData = Service.objects.all().order_by('id')
     paginator = Paginator(serviceData, 2)
     page_number = request.GET.get('page')
     serviceDataFinal = paginator.get_page(page_number)
 
-    data = {'serviceData': serviceData, 'newsData': newsData}
+    # data = {'serviceData': serviceData, 'newsData': newsData}
+    data = {}
     if request.method == "POST":
         email = request.POST.get('email')
         name = request.POST['name']
         phone = request.POST.get('phone')
         address = request.POST.get('address')
         message = request.POST.get('message')
-        # data = {'email': email, 'name': name, 'phone': phone,
-        #         'address': address, 'message': message}
+        data = {'email': email, 'name': name, 'phone': phone,
+                'address': address, 'message': message}
         print(email, name, phone, address, message)
+        # en = savehome(email=email, name=name, phone=phone,
+        #               address=address, message=message)
+        # en.save()
+        subject = 'tesing mail'
+        from_email = "rameshk.sah@patancollege.edu.np"
+        msg = '<p> welcome to <b> wscubetech</b> </p>',
+        MSG = EmailMultiAlternatives(subject, msg, from_email, [email])
+        MSG.content_subtype = 'html'
+        MSG.send()
     else:
         print("Invalid")
     return render(request, 'index.html', data)

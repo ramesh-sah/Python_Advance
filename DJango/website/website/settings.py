@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'service',
     'tinymce',
-    'news'
+    'news',
+    'saveHome'
 ]
 
 MIDDLEWARE = [
@@ -120,6 +121,14 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR, "static"]
+MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_URL = "/media/"
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'rameshk.sah@patancollege.edu.np'
+EMAIL_HOST_PASSWORD = 'ramesh@5611'  # change this to your
+EMAIL_USE_TLS = True
 
 
 # Default primary key field type

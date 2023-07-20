@@ -15,7 +15,10 @@
   <ul>
     <li>
         <a href="#">{{newsDetails.news_title}} </a>
-        <p>{{newsDetails.news_desc  |safe }}</p>
+        <div>
+          <p>{{newsDetails.news_desc  |safe }}</p>
+          <img src="/media/{{newsDetails.news_image}}" />
+        </div>
     </li>
     <li>
         <a href="#">Category second</a>
