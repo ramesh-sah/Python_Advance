@@ -1,0 +1,5 @@
+print("hello world")
+print(20+45)
+print ("hello world, welcome to wscubetech")
+print(10>5)
+print(5>10)
