@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ 	<head>
+ 		<!-- Meta Tags -->
+		<meta charset="UTF-8">
+		<meta name="author" content="Kamran Mubarik">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Title -->
+ 		<title>E-Commerce Online Shop</title>
+ 		<!-- Style Sheet -->
+		<link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<!-- Javascript -->	
+		<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+  		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  		<script>		   
+		    $( function() {
+			    $( "#slider-range" ).slider({
+			      range: true,
+			      min: 0,
+			      max: 10000,
+			      values: [ 1000, 3000 ],
+			      slide: function( event, ui ) {
+			        $( "#amount" ).val( "Rs." + ui.values[ 0 ] + " - Rs." + ui.values[ 1 ] );
+			      }
+			    });
+			    $( "#amount" ).val( "Rs." + $( "#slider-range" ).slider( "values", 0 ) +
+			      " - Rs." + $( "#slider-range" ).slider( "values", 1 ) );
+			});
+		 </script>
+ 	</head>
+<body>
+
+	{% extends 'base.html' %}
+	<!-- header -->
+	
+	{% block content %}
+		
+	
+		
+
+	<div class="container">
+		<main>
+			<div class="breadcrumb">
+				<ul>
+					<li><a href="{% url 'home' %}">Home</a></li>
+					<li> / </li>
+					<li>Shop</li>
+				</ul>
+			</div> <!-- End of Breadcrumb-->
+
+			<div class="new-product-section shop">
+				<div class="sidebar">
+					<div class="sidebar-widget">
+						<h3>Category</h3>
+						<ul>
+							<li><a href="#men_cloths">Men's Clothes</a></li>
+							<li><a href="#men_shoes">Men's Shoes</a></li>
+							<li><a href="#men_watches">Men's Watches</a></li>
+							<li><a href="#women_handbags">Women's Handbags</a></li>
+							<li><a href="#women_glasses">Women's Glasses</a></li>
+
+						</ul>
+					</div>
+					
+				</div>
+				<div class="product-content">
+					
+					{% for n in men_cloths %}
+					<div class="product" id="men_cloths">
+					<form>
+						<a href="{% url 'product' n.slug%}">
+							<img src="/media/{{n.product_image}}">
+						</a>
+						
+						<div class="product-detail" >
+							<h3>{{n.product_category}}</h3>
+							<h2>{{n.product_name}}</h2>
+							<a href="{% url 'cart' n.slug %}"> Add to Cart</a>
+							
+							<p>Rs.{{n.product_price}}/-</p>
+						</div>		
+					</div>
+					{% endfor %}
+
+					{% for n in men_shoes %}
+					<div class="product" id="men_shoes">
+						<a href="{% url 'product' n.slug%}">
+							<img src="/media/{{n.product_image}}">
+						</a>
+						<div class="product-detail">
+							<h3>{{n.product_category}}</h3>
+							
+							<h2>{{n.product_name}}</h2>
+							<a href="{% url 'cart' n.slug %}"> Add to Cart</a>
+							
+							<p>Rs.{{n.product_price}}/-</p>
+							
+						</div>		
+					</div>
+					{% endfor %}
+					{% for n in men_watches %}
+					<div class="product" id="men_watches">
+						<a href="{% url 'product' n.slug %}">
+							<img src="/media/{{n.product_image}}">
+						</a>
+						<div class="product-detail">
+							<h3>{{n.product_category}}</h3>
+							
+							<h2>{{n.product_name}}</h2>
+							<a href="{% url 'cart' n.slug %}"> Add to Cart</a>
+							<p>Rs.{{n.product_price}}/-</p>
+							
+						</div>		
+					</div>
+					{% endfor %}
+					{% for n in women_handbags %}
+					<div class="product" id="women_handbags">
+						<a href="{% url 'product' n.slug %}">
+							<img src="/media/{{n.product_image}}">
+						</a>
+						<div class="product-detail" >
+							<h3>{{n.product_category}}</h3>
+							<h2>{{n.product_name}}</h2>
+							<a href="{% url 'cart' n.slug %}"> Add to Cart</a>
+							
+							<p>Rs.{{n.product_price}}/-</p>
+						</div>		
+					</div>
+					{% endfor %}
+					{% for n in women_glasses %}
+					<div class="product" id="women_glasses">
+						<a href="{% url 'product' n.slug %}">
+							<img src="/media/{{n.product_image}}">
+						</a>
+						<div class="product-detail">
+							<h3>{{n.product_category}}</h3>
+							<h2>{{n.product_name}}</h2>
+							<a href="{% url 'cart' n.slug %}"> Add to Cart</a>
+							
+							<p>Rs.{{n.product_price}}/-</p>
+						</div>		
+					</div>
+					{% endfor %}
+
+				</div>				
+			</div> <!-- New Product Section -->	
+			<div class="load-more">
+				<a href="#">Load More</a>
+			</div>		
+		</main> <!-- Main Area -->
+	</div>
+
+	
+	{% endblock content %}
+	<!-- Footer Area -->
+
+</body>
+
+</html>

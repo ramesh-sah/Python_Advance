@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ 	<head>
+ 		<!-- Meta Tags -->
+		<meta charset="UTF-8">
+		<meta name="author" content="Kamran Mubarik">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Title -->
+ 		<title>E-Commerce Online Shop</title>
+ 		<!-- Style Sheet -->
+		<link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+		<!-- Javascript -->	
+		<script type="text/javascript" src="/static/js/jquery.miobj.js"></script>
+		<!-- FancyBox -->
+		<link rel="stylesheet" href="/static/fancybox/source/jquery.fancybox.css" type="text/css" media="screen" />
+		<script type="text/javascript" src="/static/fancybox/source/jquery.fancybox.pack.js"></script>
+
+		<!-- Optionally add helpers - button, thumbnail and/or media -->
+		<link rel="stylesheet" href="/static/fancybox/source/helpers/jquery.fancybox-buttons.css" type="text/css" media="screen" />
+		<script type="text/javascript" src="/static/fancybox/source/helpers/jquery.fancybox-buttons.js"></script>
+		<script type="text/javascript" src="/static/fancybox/source/helpers/jquery.fancybox-media.js"></script>
+
+		<link rel="stylesheet" href="/static/fancybox/source/helpers/jquery.fancybox-thumbs.css" type="text/css" media="screen" />
+		<script type="text/javascript" src="/static/fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
+		<script>
+		$(document).ready(function(){		
+			$('.fancybox').fancybox({
+				openEffect  : 'none',
+				closeEffect : 'none',
+
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					buttons	: {}
+				},
+
+				afterLoad : function() {
+					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+				}
+			});
+		});
+
+  		</script>
+ 	</head>
+<body>
+
+	{% extends 'base.html' %}
+	<!-- header -->
+	
+	{% block content %}
+		
+	
+		
+
+	<div class="container">
+		<main>
+			<div class="breadcrumb">
+				<ul>
+					<li><a href="{% url 'home' %}">Home</a></li>
+					<li> / </li>
+					<li><a href="{% url 'shop' %}">Shop</a></li>
+					<li> / </li>
+					<li><a href="">Product</a></li>
+				</ul>
+			</div> <!-- End of Breadcrumb-->
+			
+			<div class="single-product">
+				<div class="images-section">
+					<div class="larg-img">
+						<img src="/media/{{obj.product_image}}">
+					</div>
+				</div> <!-- End of Images Section-->
+
+				<div class="product-detail">
+					<div class="product-name">
+						<h2>{{obj.product_name}}</h2>
+					</div>
+					<div class="product-price">
+						<h3>Rs.{{obj.product_price}}/-</h3>
+					</div>
+					<hr>
+					<div class="product-description">
+						<p>{{obj.product_short_description}}</p>
+					</div>
+					<hr>
+					<div class="product-cart">
+						<form id="cart-form" method="POST" >
+							{% csrf_token %}
+							<div class="form-group">
+								<input type="number" class="cart-number" name="no-of-product-item" value="1" min="1" max="10">
+								<input type="submit" name="addToCart" value="Add To Cart">
+							</div>
+						</form>
+						<form id="wishlist-form" >
+							<div class="form-group">
+								<a href="{% url 'whitelist' obj.slug %}">
+								<input type="checkbox" class="wishlist" name="wishlist"> Add To Wishlist
+								</a>
+							</div>
+						</form>
+					</div>
+					<hr>
+					<div class="product-meta">
+						<p><b>Category: </b> {{obj.product_category}}</p>
+						<p><b>Share This Product: </b> Facebook, Twitter</p>
+					</div>
+				</div> <!-- End of Product Detail-->
+			</div>
+			
+			<hr>
+			<div class="product-long-description">
+				<h3>Product Description</h3>
+				<p>
+					{{ obj.product_long_description }} 
+				</p>
+				
+			</div>
+			<hr>
+			<div class="new-product-section">
+				<div class="product-section-heading">
+					<h2>Recommend Products <img src="/static/img/icons/good_quality.png"></h2>
+					<h3>OUR BEST PRODUCTS RECOMMENDED FOR YOU</h3>
+				</div>
+				
+				<div class="product-content">
+					
+					<div class="product">
+						<a href="product.html">
+							<img src="/media/{{men_cloths.product_image}}">
+						</a>
+						<div class="product-detail">
+							<h3>{{men_cloths.product_category}}</h3>
+							<h2>{{men_cloths.product_name}}</h2>
+							<a href="{% url 'cart' men_cloths.slug %}">Add to Cart</a>
+							<p>Rs.{{men_cloths.product_price}}/-</p>
+						</div>						
+					</div> 
+					<div class="product">
+						<a href="product.html">
+							<img src="/media/{{men_shoes.product_image}}">
+						</a>
+						<div class="product-detail">
+							<h3>{{men_shoes.product_category}}</h3>
+							<h2>{{men_shoes.product_name}}</h2>
+							<a href="{% url 'cart' men_shoes.slug %}">Add to Cart</a>
+							<p>Rs.{{men_shoes.product_price}}/-</p>
+						</div>						
+					</div>
+					<div class="product">
+						<a href="product.html">
+							<img src="/media/{{men_watches.product_image}}">
+						</a>
+						<div class="product-detail">
+							<h3>{{men_watches.product_category}}</h3>
+							<h2>{{men_watches.product_name}}</h2>
+							<a href="{% url 'cart' men_watches.slug %}">Add to Cart</a>
+							<p>Rs.{{men_watches.product_price}}/-</p>
+						</div>						
+					</div>
+					<div class="product">
+						<a href="product.html">
+							<img src="/media/{{women_handbags.product_image}}">
+						</a>
+						<div class="product-detail">
+							<h3>{{women_handbags.product_category}}</h3>
+							<h2>{{women_handbags.product_name}}</h2>
+							<a href="{% url 'cart' women_handbags.slug %}">Add to Cart</a>
+							<p>Rs.{{women_handbags.product_price}}/-</p>
+						</div>						
+					</div>
+					
+					
+			</div> <!-- Recommend Product Section -->
+		</main> <!-- Main Area -->
+	</div>
+
+	{% endblock content %}
+	<!-- Footer Area -->
+
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .login-container {
+      width: 300px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    .input-field {
+      margin-bottom: 15px;
+    }
+    .input-field label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .input-field input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    .forgot-password {
+      text-align: right;
+      font-size: 14px;
+      color: #007bff;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form method="POST">
+      {% csrf_token %}
+      <div class="input-field">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="input-field">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      
+      <button type="submit">Login</button>
+      <br>
+      <br>
+      <div >
+        <a href="{% url 'signup' %}">SignUp Here</a>
+      </div>
+      
+      <div class="forgot-password">
+        <a href="{% url 'forgetpassword' %}">Forgot Password?</a>
+      </div>
+      
+    </form>
+  </div>
+</body>
+</html>

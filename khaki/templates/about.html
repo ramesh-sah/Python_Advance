@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ 	<head>
+ 		<!-- Meta Tags -->
+		<meta charset="UTF-8">
+		<meta name="author" content="Kamran Mubarik">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Title -->
+ 		<title>E-Commerce Online Shop</title>
+ 		<!-- Style Sheet -->
+		<link rel="stylesheet" type="text/css" href="/static/css/style.css" />  		
+ 	</head>
+<body>
+	<!-- header section start-->
+	{% extends 'base.html' %}
+	<!-- header -->
+	
+	{% block content %}
+		
+	
+		
+
+	<div class="container">
+		<main>
+			{% for n in abouts %}
+			<div class="about">
+				<h2 class="heading"> {{n.title}} </h2>
+				<p>{{ n.description }}</p>
+			</div>
+			{% endfor %}
+		</main> <!-- Main Area -->
+	</div>
+	{% endblock content %}
+
+	<!-- Footer Area -->
+
+</body>
+
+</html>

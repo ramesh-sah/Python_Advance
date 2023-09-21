@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Bill</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="print-button">
+		<button onclick="window.print()">Print</button>
+	</div>
+    <h1 style="textalign:center; background:blue">Khaki CheckOut Bill </h1>
+
+    <table style="background:yellow">
+        <tr>
+            <th>Customer Information</th>
+            <th>Order Information</th>
+            <th>Shipping Information</th>
+            <th>Payment Information</th>
+            <th>Additional Information</th>
+
+        </tr>
+        <tr>
+            <td>
+                <strong>First Name:</strong> {{ obj.first_name }}<br>
+                <strong>Last Name:</strong> {{ obj.last_name }}<br>
+                <strong>Email:</strong> {{ obj.email }}<br>
+                <!-- Add more customer information fields here -->
+            </td>
+            <td>
+                <strong>Product Name:</strong> {{ obj.product_name }}<br>
+                <strong>Number of Product Items:</strong> {{ obj.no_of_product_item }}<br>
+                <strong>Product Price:</strong> {{ obj.product_price }}<br>
+                <!-- Add more order information fields here -->
+            </td>
+            <td>
+                <strong>Country:</strong> {{ obj.country }}<br>
+                <strong>City:</strong> {{ obj.city }}<br>
+                <strong>Address:</strong> {{ obj.address }}<br>
+                <!-- Add more shipping information fields here -->
+            </td>
+            <td>
+                <strong>Payment Method:</strong> {{ obj.payment }}<br>
+                <!-- Add more payment information fields here -->
+            </td>
+            <td>
+                <strong>Order Note:</strong> {{ obj.ordernote }}<br>
+            </td>
+        </tr>
+    </table>
+
+    <p>
+        <strong>Order Status:</strong> {{ obj.status }}
+    </p>
+    <p>
+        <strong>Order Date:</strong> {{ obj.created_date }}
+    </p>
+    <p>*******************************************************************************************************************************************************************</p>
+
+    <!-- Add a submit button if you want to allow users to confirm the order -->
+
+</body>
+</html>

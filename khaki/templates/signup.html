@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ 	<head>
+ 		<!-- Meta Tags -->
+		<meta charset="UTF-8">
+		<meta name="author" content="Kamran Mubarik">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Title -->
+ 		<title>E-Commerce Online Shop</title>
+ 		<!-- Style Sheet -->
+		<link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+		<!-- Javascript -->	
+		<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+ 	</head>
+<body>
+	<!--header section start-->
+	{% extends 'base.html' %}
+	<!-- header -->
+	
+	{% block content %}
+		
+	
+		
+
+	<div class="container">
+		<main>
+			
+			
+			
+				<div class="account-detail">
+					<h2>Signup</h2>
+					<div class="billing-detail">					
+						<form class="checkout-form" method="POST">
+							{% csrf_token %}
+							<div class="form-inline">
+								<div class="form-group">
+									<label>First Name</label>
+									<input type="text" id="fname" name="fname" required="" >
+								</div>
+								<div class="form-group">
+									<label>Last Name</label>
+									<input type="text" id="lname" name="lname" required="">
+								</div>
+							</div>
+							<div class="form-group">
+								<label>Email</label>
+								<input type="text" id="cname" name="email" required="">
+							</div>
+							<div class="form-group">
+                                <label>Profile Image</label>
+                                <input type="file" id="phone" name="profile_image" accept="image/*" required="">
+						
+                            </div>
+							<div class="form-group">
+								<label>Password</label>
+								<input type="password" id="cname" name="password" required="">
+							</div>
+							<div class="form-inline">
+								<div class="form-group">
+									<label>Country</label>
+									<select id="country" name="country" required="">
+										<option selected>---Select a Country---</option>
+										<option value="Nepal">Nepal</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label>City</label>
+									<select id="city" name="city" required="">
+										<option selected>---Select a City---</option>
+										<option value="Kathmandu">Kathmandu</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label>Address</label>
+								<textarea style="resize:none" id="address" name="address" rows="3" required="" ></textarea>
+								
+							</div>
+							<div class="form-inline">					
+								<div class="form-group">
+									<label>Tel</label>
+									<input type="number" id="tel" name="tel" minlength="11" maxlength="11" required="">
+								</div>
+
+								<div class="form-group">
+									<label>Mobile</label>
+									<input type="number" id="mobile" name="mobile" minlength="11" maxlength="11" required="" >
+								</div>
+							</div>
+							<div class="form-group">
+								<label></label>
+								<input type="submit"  name="submit" value="submit">
+							</div>
+						</form>		
+					</div>
+				</div>				
+			</div>		
+		</main> <!-- Main Area -->
+	</div>
+	{% endblock content %}
+
+	<!-- Footer Area -->
+
+</body>
+
+</html>

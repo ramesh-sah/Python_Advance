@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ 	<head>
+ 		<!-- Meta Tags -->
+		<meta charset="UTF-8">
+		<meta name="author" content="Kamran Mubarik">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Title -->
+ 		<title>E-Commerce Online Shop</title>
+ 		<!-- Style Sheet -->
+		<link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+		<!-- Javascript -->	
+		<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+  		<script>
+  			$(document).ready(function(){
+  				
+  				$('.prev').on("click", function(){
+
+  					var prev = $(this).closest('.qty').find("input").val();
+  					
+  					if (prev == 1) {
+  						$(this).closest('.qty').find("input").val('1');
+  					}else{
+  						var prevVal = prev - 1;
+  						$(this).closest('.qty').find("input").val(prevVal);
+  					}  					
+  				});
+  				$('.next').on("click", function(){
+
+  					var next = $(this).closest('.qty').find("input").val();
+  					
+  					if (next == 10) {
+  						$(this).closest('.qty').find("input").val('10');
+  					}else{
+  						var nextVal = ++next;
+  						$(this).closest('.qty').find("input").val(nextVal);
+  					}  					
+  				});
+  			});
+  		</script>
+ 	</head>
+<body>
+	{% extends 'base.html' %}
+	
+	<!-- header -->
+	
+	{% block content %}
+		
+	
+		
+
+	<div class="container">
+		<main>
+			<div class="breadcrumb">
+				<ul>
+					<li><a href="{% url 'home' %}">Home</a></li>
+					<li> / </li>
+					<li><a href="{% url 'shop' %}">Shop</a></li>
+					<li> / </li>
+					<li>Cart</li>
+				</ul>
+			</div> <!-- End of Breadcrumb-->
+
+			<h2>Shopping Cart</h2>
+			<div class="cart-page">
+				<div class="cart-items">					
+					<table>
+						<thead>
+							<tr>
+								<th colspan="3">Cart Items</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for n in cart_obj %}
+							<tr>
+								
+									
+								<td style="width: 20%;"><img src="/media/{{ n.product_image }}"></td>
+								<td style="width: 60%;">
+									<h2>{{n.product_name}}</h2>
+									<p>{{n.proudct_description}}</p>
+									<br>
+									<h3>Price: Rs.{{n.product_price}}</h3>
+									<br>
+									<a href="{% url 'deletecartitem' n.slug  %}">x</a> Remove
+									<a href="{% url 'checkoutsingle' n.slug %}">Go to Checkout</a>
+								</td>
+								
+								
+							</tr>
+							{% endfor %}						
+						</tbody>	
+					</table>
+					<div class="pagination">
+						<ul>
+							<li><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="cart-summary">
+					<div class="checkout-total">
+						<h3>Cart Summary</h3>
+						<ul>
+							<li>Number of Products x {{total_cart_product}}</li>
+							<li>Number of items x {{total_item}}</li>
+							<hr>
+							<li>Cart Total <span style="float: right;">Rs.{{total_amount}}</span></li>
+							
+						</ul>
+					</div>
+				</div>
+			</div>		
+		</main> <!-- Main Area -->
+	</div>
+	{% endblock content %}
+
+	<!-- Footer Area -->
+
+</body>
+
+</html>

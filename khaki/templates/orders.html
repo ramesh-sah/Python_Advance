@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ 	<head>
+ 		<!-- Meta Tags -->
+		<meta charset="UTF-8">
+		<meta name="author" content="Kamran Mubarik">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Title -->
+ 		<title>E-Commerce Online Shop</title>
+ 		<!-- Style Sheet -->
+		<link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+		<!-- Javascript -->	
+		<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+ 	</head>
+<body>
+	<!--header section start-->
+	{% extends 'base.html' %}
+	
+	{% block content %}
+		
+	
+		
+
+	<!-- header -->
+
+	<div class="container">
+		<main>
+			<div class="breadcrumb">
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li> / </li>
+					<li><a href="account.html">Account</a></li>
+					<li> / </li>
+					<li>Orders</li>
+				</ul>
+			</div> <!-- End of Breadcrumb-->
+
+			
+			<div class="account-page">
+				<div class="profile">
+					<div class="profile-img">
+						<img src="/media/{{ obj1.profile_image }}">
+						<h2>{{obj1.first_name}} {{obj1.last_name}}</h2>
+						<p>{{obj1.email}}</p>
+					</div>						
+					<ul>
+						<li><a href="{% url 'account' %}" class="active">Account <span>></span></a></li>
+						<li><a href="{% url 'orders' %}">My Orders <span>></span></a></li>
+						<li><a href="{% url 'changepassword' %}">Change Password <span>></span></a></li>
+						<li><a href="{% url 'logout' %}">Logout <span>></span></a></li>
+					</ul>
+				</div>
+				<div class="account-detail">					
+					<h2>My Orders</h2>
+					<div class="order-detail">
+						<table>
+							<thead>
+								<tr>
+									<th>Date & time</th>
+									<th>Order Ref#</th>
+									<th>Amount</th>
+									<th>Payment Mode</th>
+									<th>Status</th>
+									<th>View</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for obj in obj2 %}
+								<tr>
+									<td>{{obj.created_date}}</td>
+									<td>{{obj.id}}</td>
+									<td>{{obj.product_price}}</td>
+									<td>{{obj.payment}}</td>
+									<td>{{obj.status}}</td>
+									<td><a href="{% url 'printbill' obj.id %}">View</a></td>
+									
+								</tr>
+								{% endfor %}
+									
+							</tbody>
+						</table>
+					</div>
+				</div>				
+			</div>		
+		</main> <!-- Main Area -->
+	</div>
+
+	{% endblock content %}
+	<!-- Footer Area -->
+
+</body>
+
+</html>
