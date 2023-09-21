@@ -91,11 +91,11 @@ WSGI_APPLICATION = "khaki.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'railway',
+        'NAME': 'postgres',
         'USER':'postgres',
-        'PASSWORD': 'O6CUyqsy6rms4a6Nvw7f',
-        'HOST': 'containers-us-west-132.railway.app',
-        'PORT': '5440',
+        'PASSWORD': 'Ramesh@5611/',
+        'HOST': 'db.vdewhqhvolauvbyfmplj.supabase.co',
+        'PORT': '5432',
     }
 }
 
