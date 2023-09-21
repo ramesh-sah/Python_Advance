@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,12 +25,12 @@ SECRET_KEY = "django-insecure-j@zihx$qyk@poy7pj6n2&qlgj$6=bq1%o9u6tf6(0*0#ie)_1v
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['rameshkumarsah.pythonanywhere.com' ]
+# ALLOWED_HOSTS = ['rameshkumarsah.pythonanywhere.com' ]
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh','*']
 
-CSRF_TRUSTED_ORIGINS = ["https://rameshkumarsah.pythonanywhere.com"]
+# CSRF_TRUSTED_ORIGINS = ["https://rameshkumarsah.pythonanywhere.com"]
 
-MEDIA_ROOT=BASE_DIR/'media'
-MEDIA_URL='/media/'
+
 
 
 # Application definition
@@ -88,9 +89,13 @@ WSGI_APPLICATION = "khaki.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'railway',
+        'USER':'postgres',
+        'PASSWORD': 'flBg9keblt0T2t0ouF7a',
+        'HOST': 'containers-us-west-89.railway.app',
+        'PORT': '5652',
     }
 }
 
@@ -131,8 +136,11 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 # STATICFILES_DIRS=[BASE_DIR,'static']
-STATICFILES_DIRS = [BASE_DIR/'static',]
-STATIC_ROOT = BASE_DIR/'staticfiles'
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+
+MEDIA_ROOT=BASE_DIR/'media'
+MEDIA_URL='/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
