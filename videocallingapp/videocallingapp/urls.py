@@ -27,5 +27,5 @@ urlpatterns = [
     
 ]
 if settings.DEBUG:
-    urlpatterns += STATIC_URL(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
-    urlpatterns += STATICFILES_DIRS(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
