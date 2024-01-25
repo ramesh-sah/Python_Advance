@@ -18,4 +18,3 @@ print(x<=y)
 print(x>=y)
 print(x==y)
 print(x!=y)
-</s>   </s>   </s>   </s>   </s>

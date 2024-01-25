@@ -8,3 +8,4 @@ else:
     print("None of these")
     
 #spaces between the if and print is called indentions
+#indentations are used to make the code more readable and understandable
