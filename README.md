@@ -1,6 +1,6 @@
 # Python Repository
 
-![Image of Python logo](https://unsplash.com/photos/a-purple-and-black-background-with-a-purple-and-black-logo-QUwM2LDVs3A)
+![Image of Python logo](https://pluspng.com/png-173913.html)
 
 This repository contains a collection of Python projects, tutorials, and resources for various topics, including:
 
