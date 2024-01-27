@@ -1,11 +1,11 @@
 # Python Repository
 
-![Image of Python logo](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png)
+![Image of Python logo](https://logos-download.com/wp-content/uploads/2016/06/Python_logo_horizontal_RGB_wordmark.svg)
 
 This repository contains a collection of Python projects, tutorials, and resources for various topics, including:
 
 * **Python Django:** Projects and tutorials for building web applications using the Django framework.
-![Image of Django logo](https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Django_logo.svg/1200px-Django_logo.svg.png)
+![Image of Django logo](https://www.djangoproject.com/m/img/logos/django-logo-positive.svg)
 
 * **Flask:** Projects and tutorials for building web applications using the Flask microframework.
 ![Image of Flask logo](https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Flask_logo.svg/1200px-Flask_logo.svg.png)
@@ -28,6 +28,10 @@ This repository contains a collection of Python projects, tutorials, and resourc
 
 ![Image of scikit-learn logo](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Scikit_learn_logo.svg/1200px-Scikit_learn_logo.svg.png)
 
+
+## Getting Started
+
+To get started with this repository, clone it to your local machine using the following command:
 
 ## Getting Started
 
