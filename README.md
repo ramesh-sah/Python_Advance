@@ -1,6 +1,6 @@
 # Python Repository
 
-![Image of Python logo](https://pluspng.com/png-173913.html)
+![Image of Python logo](https://brandslogos.com/wp-content/uploads/images/large/python-logo.png)
 
 This repository contains a collection of Python projects, tutorials, and resources for various topics, including:
 
