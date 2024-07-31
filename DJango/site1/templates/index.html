@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <h1>
+      {{title}}
+ {{bdata}}
+ {% for n in clist %}
+ <div> {{forloop.counter}}{{n}}</div>
+
+    {% endfor %}
+
+
+    <table>
+        <tr>
+            <th> Name</th>
+            <th> Phone </th>
+        </tr>
+        {% for d in student_details %}
+        <tr>
+            <td> {{d.name}}</td>
+            <td>{{d.city}}</td>
+
+        </tr>
+        {% endfor %}
+  </body>
+</html>
