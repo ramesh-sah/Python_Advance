@@ -1,19 +1,35 @@
 class Rectangle:
-  def __init__(self):
-    self.length = 0
-    self.breadth = 0
+  def __init__(self,length=None,width=None):
+    self.__length = length
+    self.__width = width
+  
+  def set_length(self, length):
+    self.__length = length if length > 0 else 0
+  def set_width(self, width):
+    self.__width = width if width > 0 else 0
+    
+  def setDimensions(self, length,width):
+    self.set_length(length)
+    self.set_width(width)
+    
+  def get_length(self):
+    return self.__length
+  def get_width(self):
+    return self.__width
+  def getDimensions(self):
+    return self.get_length(), self.get_width()
+  
+  def calculate_area(self):
+    return self.__length * self.__width
 
-  def setDimensions(self, length, breadth):
-    self.length = length
-    self.breadth = breadth
+r=Rectangle(10,14)
+print(r.get_length())
+print(r.get_width())
+print(r.getDimensions())
+print(r.calculate_area())
 
-  def showDimensions(self):
-    print(f"Length: {self.length} Breadth: {self.breadth}")
+r1=Rectangle()
 
-  def getArea(self):
-    return self.length * self.breadth
-
-rect = Rectangle()
-rect.setDimensions(5, 4)
-rect.showDimensions()
-print(rect.getArea())
+r1.setDimensions(3,5)
+print(r1.getDimensions())
+print(r1.calculate_area())
